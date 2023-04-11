@@ -11,7 +11,21 @@ const questions = [{
     if (nameInput) {
       return true;
     } else {
-      console.log('Please enter Project.');
+      console.log('Please enter Project Name.');
+      return false;
+    }
+  }
+},
+//Description of the project
+{
+  type: 'input',
+  name: 'information',
+  message: 'Write description of the project',
+  validate: nameInput => {
+    if (nameInput) {
+      return true;
+    } else {
+      console.log('Please enter Project Description.');
       return false;
     }
   }
