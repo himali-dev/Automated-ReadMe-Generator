@@ -1,5 +1,10 @@
 // TODO: Include packages needed for this application
-const inquireCmd = require('inquirer');
+const generateMarkdown = require('./utils/generateMarkdown');
+const util = require('util');
+const fs = require('fs');
+const inquirer = require('inquirer');
+
+
 
 
 // Questions Array
@@ -136,7 +141,25 @@ function writeToFile(fileName, data) {
   })
 }
 
+const readMeCreate = util.promisify(writeToFile);
+// function to initialize app
+async function init() {
+  try {
+    const answers = await inquirer.prompt(questions);
+    console.log('Thanks for the answers. The data is processed in README_PROFESSIONAL.md: ', answers);
 
+
+    // fill as per the template
+    const finalReadMeData = generateMarkdown(answers);
+
+    //write the readme and console dot log
+    await readMeCreate('README_PROFESSIONAL.md', finalReadMeData);
+    console.log(finalReadMeData);
+
+  } catch (error) {
+    console.log('Sorry there was an error.' + error);
+  }
+};
 
 
 
