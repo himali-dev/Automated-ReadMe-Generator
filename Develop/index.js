@@ -123,13 +123,24 @@ const questions = [{
 
 
 ];
+
+
 // question array ends
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+  fs.writeFile(fileName, data, error => {
+    if (error) {
+      return console.log('Error in generating Read Me' + error);
+    }
+  })
+}
 
-// TODO: Create a function to initialize app
-function init() {}
+
+
+
+
+
 
 // Function call to initialize app
 init();
