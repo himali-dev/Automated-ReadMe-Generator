@@ -20,7 +20,7 @@ const questions = [{
 {
   type: 'input',
   name: 'information',
-  message: 'Write description of the project',
+  message: '- What was your motivation? Why did you build this project? (Note: the answer is not "Because it was a homework assignment.") What problem does it solve? What did you learn?',
   validate: nameInput => {
     if (nameInput) {
       return true;
