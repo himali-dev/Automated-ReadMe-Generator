@@ -132,3 +132,67 @@ let tableOfContents =
 
   ${data.contribute}`
   };
+
+
+// Questions
+if (data.username) {
+  readMeMarkUp +=
+  `
+## Questions
+For further questions:
+GitHub: [${data.username}](https://github.com/${data.username})
+Email: ${data.email}
+`};
+
+// credits
+if (data.credits) {
+  readMeMarkUp +=
+  `
+## Credits
+ ${data.credits}
+`};
+
+
+
+// License
+if (data.license) {
+
+  readMeMarkUp +=
+  `
+
+## License
+
+
+  **This application has the ${data.license}.**
+
+  For more information please view the [license description](${licenseLink}).
+
+
+## Badge
+
+![badge](https://img.shields.io/badge/license-${licenseSelected}-green)
+
+![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
+`
+};
+
+// Features
+if (data.features) {
+  readMeMarkUp +=
+  `
+## Features
+
+${data.features}
+`};
+
+
+
+
+
+
+return readMeMarkUp;
+
+
+}
+
+module.exports = generateMarkdown;
