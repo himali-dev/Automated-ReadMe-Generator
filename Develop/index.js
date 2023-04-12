@@ -56,6 +56,25 @@ const questions = [{
   }
 },
 
+//Usage of the project
+{
+  type: 'confirm',
+  name: 'confirmUsage',
+  message: 'Would you like to add Usage information?'
+},
+{
+  type: 'input',
+  name: 'usage',
+  message: 'Provide instructions and examples for use.',
+  when: ({ confirmUsage }) => {
+    if (confirmUsage) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+},
+
 // Credits
 {
   type: 'confirm',
@@ -124,8 +143,46 @@ const questions = [{
       return false;
     }
   }
-}
+},
 
+
+// Features
+{
+  type: 'confirm',
+  name: 'confirmFeatures',
+  message: 'Would you like to add features?'
+},
+{
+  type: 'input',
+  name: 'features',
+  message: 'If your project has a lot of features, list them here.',
+  when: ({ confirmFeatures }) => {
+    if (confirmFeatures) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+},
+
+// How to Contribute
+{
+  type: 'confirm',
+  name: 'confirmContribute',
+  message: 'Would you like instructions on how to contribute to this project?'
+},
+{
+  type: 'input',
+  name: 'contribute',
+  message: 'If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you would prefer.',
+  when: ({ confirmContribute }) => {
+    if (confirmContribute) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
 
 ];
 
